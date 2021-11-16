@@ -24,4 +24,6 @@ public class Contrat {
 
     private float salaire;
 
+    @OneToOne
+    private Employe employe;
 }

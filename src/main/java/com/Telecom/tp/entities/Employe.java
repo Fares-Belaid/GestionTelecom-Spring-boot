@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -22,6 +23,19 @@ public class Employe {
 
     private String email;
 
+    private boolean isActif;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne(mappedBy = "employe")
+    private Contrat contrat;
+
+    @OneToMany(mappedBy = "employe")
+    private List<Timesheet> timesheets;
+
+    @ManyToMany(mappedBy = "employes")
+    private List<Departement> departements;
+
+
 }
