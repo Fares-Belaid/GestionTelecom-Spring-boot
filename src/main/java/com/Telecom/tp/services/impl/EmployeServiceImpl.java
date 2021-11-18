@@ -55,6 +55,15 @@ public class EmployeServiceImpl implements EmployeService {
     @Override
     public void desaffecterEmployeDuDepartement(int employeId, int depId) {
 
+        Departement departement = departementRepository.findById(depId).get();
+        int employeNB = departement.getEmployes().size();
+
+        for (int i =0; i< employeNB; i++ ){
+            if (departement.getEmployes().get(i).getId() == employeId){
+                departement.getEmployes().remove(i);
+            }
+            break;
+        }
     }
 
     @Override
@@ -81,12 +90,21 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public void deleteEmployeById(int employeId) {
+        Employe employe = employeRepository.findById(employeId).get();
+
+        for(Departement dep : employe.getDepartements()){
+            dep.getEmployes().remove(employe);
+        }
+
+        employeRepository.delete(employe);
 
     }
 
     @Override
     public void deleteContratById(int contratId) {
 
+        Contrat contrat = contratRepository.findById(contratId).get();
+        contratRepository.delete(contrat);
     }
 
     @Override

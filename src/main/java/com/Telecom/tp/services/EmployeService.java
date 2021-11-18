@@ -24,7 +24,7 @@ public interface EmployeService {
     public void deleteEmployeById(int employeId);
 
     public void deleteContratById(int contratId);
-    
+
     public long getNombreEmployeJPQL();
 
     public List<String> getAllEmployeNamesJPQL();
