@@ -25,7 +25,6 @@ public interface EmployeService {
 
     public void deleteContratById(int contratId);
 
-
     public long getNombreEmployeJPQL();
 
     public List<String> getAllEmployeNamesJPQL();
@@ -46,6 +45,5 @@ public interface EmployeService {
 
     int addOrUpdateEmploye(Employe employe);
 
-    long addOrUpdateEmploye2(Employe employe);
 
 }
