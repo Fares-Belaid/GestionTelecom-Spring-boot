@@ -43,9 +43,9 @@ public interface EmployeService {
 
     int addOrUpdateEmploye(Employe employe);
 
-    public List<Mission> findAllMissionByEmployeJPQL(int employeId);
-
-    public List<Employe> getAllEmployeByMission(int missionId);
+//    public List<Mission> findAllMissionByEmployeJPQL(int employeId);
+//
+//    public List<Employe> getAllEmployeByMission(int missionId);
 
 
 }
