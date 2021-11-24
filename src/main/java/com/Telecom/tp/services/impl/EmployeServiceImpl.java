@@ -160,11 +160,11 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
-        return null;
+        return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
     }
 
     @Override
     public List<Employe> getAllEmployeByMission(int missionId) {
-        return null;
+        return timesheetRepository.getAllEmployeByMission(missionId);
     }
 }

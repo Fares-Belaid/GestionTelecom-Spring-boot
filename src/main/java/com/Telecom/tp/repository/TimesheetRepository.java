@@ -21,5 +21,16 @@ public interface TimesheetRepository extends JpaRepository<Timesheet, Integer> {
                                                          Mission mission, @Param("dateDebut")Date dateDebut,
                                                          @Param("dateFin")Date dateFin);
 
+    @Query("select e from Employe e" +
+            " join e.timesheets t " +
+            " join t.mission m " +
+            "where m.id =: missionId")
+    public List<Employe> getAllEmployeByMission(@Param("missionId") int missionId);
 
+
+    @Query("select m from Mission m" +
+            " join m.timesheets t" +
+            " join t.employe e " +
+            "where e.id =: employeId")
+    public List<Mission> findAllMissionByEmployeJPQL(@Param("employeId")int employeId);
 }
