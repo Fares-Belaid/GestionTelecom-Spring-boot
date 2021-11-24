@@ -158,13 +158,13 @@ public class EmployeServiceImpl implements EmployeService {
         return 0;
     }
 
-    @Override
-    public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
-        return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
-    }
-
-    @Override
-    public List<Employe> getAllEmployeByMission(int missionId) {
-        return timesheetRepository.getAllEmployeByMission(missionId);
-    }
+//    @Override
+//    public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
+//        return timesheetRepository.findAllMissionByEmployeJPQL(employeId);
+//    }
+//
+//    @Override
+//    public List<Employe> getAllEmployeByMission(int missionId) {
+//        return timesheetRepository.getAllEmployeByMission(missionId);
+//    }
 }
