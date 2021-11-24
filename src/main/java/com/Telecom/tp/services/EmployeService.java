@@ -9,8 +9,6 @@ public interface EmployeService {
 
     public int ajouterEmploye(Employe employe);
 
-    public void mettreAjourEmailByEmployeId(String email, int employeId);
-
     public void affecterEmployeADepartement(int employeId, int depId);
 
     public void desaffecterEmployeDuDepartement(int employeId, int depId);
@@ -44,6 +42,10 @@ public interface EmployeService {
     public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission,Date dateDebut, Date dateFin);
 
     int addOrUpdateEmploye(Employe employe);
+
+    public List<Mission> findAllMissionByEmployeJPQL(int employeId);
+
+    public List<Employe> getAllEmployeByMission(int missionId);
 
 
 }

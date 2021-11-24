@@ -4,6 +4,7 @@ import com.Telecom.tp.entities.*;
 import com.Telecom.tp.repository.ContratRepository;
 import com.Telecom.tp.repository.DepartementRepository;
 import com.Telecom.tp.repository.EmployeRepository;
+import com.Telecom.tp.repository.TimesheetRepository;
 import com.Telecom.tp.services.EmployeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class EmployeServiceImpl implements EmployeService {
     @Autowired
     private ContratRepository contratRepository;
 
+    @Autowired
+    private TimesheetRepository timesheetRepository;
 
     @Override
     public int ajouterEmploye(Employe employe) {
@@ -33,10 +36,6 @@ public class EmployeServiceImpl implements EmployeService {
         return employe.getId();
     }
 
-    @Override
-    public void mettreAjourEmailByEmployeId(String email, int employeId) {
-
-    }
 
     @Override
     public void affecterEmployeADepartement(int employeId, int depId) {
@@ -119,41 +118,53 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise) {
-        return null;
+        return employeRepository.getAllEmployeByEntreprise(entreprise);
     }
 
     @Override
     public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId) {
-
+            employeRepository.mettreAjourEmailByEmployeId(email,employeId);
     }
 
     @Override
     public void deleteAllContratJPQL() {
-
+            employeRepository.deleteAllContratJPQL();
     }
 
     @Override
     public float getSalaireByEmployeIdJPQL(int employeId) {
-        return 0;
+       return employeRepository.getSalaireByEmployeIdJPQL(employeId);
+
     }
 
     @Override
     public Double getSalaireMoyenByDepartementId(int departementId) {
-        return null;
+        return employeRepository.getSalaireMoyenByDepartementId(departementId);
     }
 
     @Override
     public List<Employe> getAllEmployes() {
-        return null;
+        return employeRepository.findAll();
     }
 
     @Override
     public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut, Date dateFin) {
-        return null;
+        return timesheetRepository.getTimesheetsByMissionAndDate(employe,mission,dateDebut,dateFin);
     }
 
     @Override
     public int addOrUpdateEmploye(Employe employe) {
+        employeRepository.save(employe);
         return 0;
+    }
+
+    @Override
+    public List<Mission> findAllMissionByEmployeJPQL(int employeId) {
+        return null;
+    }
+
+    @Override
+    public List<Employe> getAllEmployeByMission(int missionId) {
+        return null;
     }
 }
