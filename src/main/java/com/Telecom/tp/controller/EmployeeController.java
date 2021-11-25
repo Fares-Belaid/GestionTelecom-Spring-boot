@@ -74,7 +74,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/getAllEmployeByEntreprise")
-    public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise){
+    public List<Employe> getAllEmployeByEntreprise(@RequestBody Entreprise entreprise){
         return employeService.getAllEmployeByEntreprise(entreprise);
     }
 
