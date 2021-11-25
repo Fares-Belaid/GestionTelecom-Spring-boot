@@ -3,6 +3,7 @@ package com.Telecom.tp.repository;
 import com.Telecom.tp.entities.Employe;
 import com.Telecom.tp.entities.Mission;
 import com.Telecom.tp.entities.Timesheet;
+import com.Telecom.tp.entities.TimesheetPK;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -33,4 +34,6 @@ public interface TimesheetRepository extends JpaRepository<Timesheet, Integer> {
             " join t.employe e " +
             "where e.id =: employeId")
     public List<Mission> findAllMissionByEmployeJPQL(@Param("employeId")int employeId);
+
+    public Timesheet findBytimesheetPK(TimesheetPK timesheetPK);
 }
